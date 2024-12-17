@@ -42,13 +42,19 @@
 
     <script>
         document.addEventListener('livewire:init', () => {
-            // Livewire.on('openModal', (el) => {
-            //     document.querySelector('#'+el).classList.remove('hidden')
-            // })
+            Livewire.on('openModal', (el) => {
+                if (el.length > 0) {
+                    const myModal = new bootstrap.Modal(document.getElementById(el), {
+                        backdrop: false,
+                    })
+                    myModal.show()
+                    return false;
+                }
+            })
 
             Livewire.on('closeModal', (el) => {
                 if (el.length > 0) {
-                    $(el[0]).modal('hide');
+                    $(el).modal('hide');
                     // $('.modal').modal('hide');
                     return false;
                 }else{
