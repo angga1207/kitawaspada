@@ -25,38 +25,38 @@
                 <!-- content @s -->
                 <div class="nk-content ">
                     <div class="nk-split nk-split-page nk-split-lg">
-                        <div class="nk-split-content nk-block-area nk-block-area-column nk-auth-container bg-white">
+                        <div class="nk-split-content nk-block-area nk-block-area-column nk-auth-container bg-login">
                             <div class="absolute-top-right d-lg-none p-3 p-sm-5">
                                 <a href="#" class="toggle btn-white btn btn-icon btn-light" data-target="athPromo"><em
                                         class="icon ni ni-info"></em></a>
                             </div>
                             <div class="nk-block nk-block-middle nk-auth-body">
                                 <div class="brand-logo pb-5">
-                                    <a href="html/index.html" class="logo-link">
+                                    <a href="{{ route('login') }}" class="logo-link">
                                         <img class="logo-light logo-img logo-img-lg"
-                                            src="./assets/images/kita_waspada/logo.png"
-                                            srcset="./assets/images/kita_waspada/logo.png 2x" alt="logo">
+                                            src="./assets/images/kita_waspada/logo_login.png"
+                                            srcset="./assets/images/kita_waspada/logo_login.png 2x" alt="logo">
                                         <img class="logo-dark logo-img logo-img-lg"
-                                            src="./assets/images/kita_waspada/logo.png"
-                                            srcset="./assets/images/kita_waspada/logo.png 2x" alt="logo-dark">
+                                            src="./assets/images/kita_waspada/logo_login.png"
+                                            srcset="./assets/images/kita_waspada/logo_login.png 2x" alt="logo-dark">
                                     </a>
                                 </div>
                                 <div class="nk-block-head">
                                     <div class="nk-block-head-content">
-                                        <h5 class="nk-block-title">Masuk Aplikasi</h5>
-                                        <div class="nk-block-des">
+                                        <h5 class="nk-block-title text-dark">Masuk Aplikasi</h5>
+                                        <div class="nk-block-des text-dark">
                                             <p>Gunakan nama pengguna dan kata sandi yang valid</p>
                                         </div>
                                     </div>
                                 </div><!-- .nk-block-head -->
+
                                 {{ $slot }}
-                                <!-- form -->
 
                             </div><!-- .nk-block -->
                             <div class="nk-block nk-auth-footer">
 
                                 <div class="mt-3">
-                                    <p>&copy; 2024 Kita Waspada. All Rights Reserved.</p>
+                                    <p class="text-dark">&copy; 2024 Kita Waspada. All Rights Reserved.</p>
                                 </div>
                             </div><!-- .nk-block -->
                         </div><!-- .nk-split-content -->
@@ -64,12 +64,18 @@
                             data-toggle-body="true" data-content="athPromo" data-toggle-screen="lg"
                             data-toggle-overlay="true">
                             <div class="slider-wrap w-100 w-max-550px p-3 p-sm-5 m-auto">
-                                <div class="slider-init" data-slick='{"dots":true, "arrows":false}'>
+                                <div class="slider-init">
                                     <div class="slider-item">
                                         <div class="nk-feature nk-feature-center">
                                             <div class="nk-feature-img">
-                                                <img class="round" src="./images/slides/promo-a.png"
-                                                    srcset="./images/slides/promo-a2x.png 2x" alt="">
+                                                <script
+                                                    src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+                                                    type="module"></script>
+                                                <dotlottie-player
+                                                    src="https://lottie.host/6c052111-280f-4c18-ad82-45869778085a/a0sqxUd3QF.lottie"
+                                                    background="transparent" speed="1"
+                                                    style="width: 450px; height: 450px" loop autoplay>
+                                                </dotlottie-player>
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
                                                 <h4>Kolaborasi dan Integrasi Data Pengawasan Perangkat Daerah</h4>
@@ -83,8 +89,6 @@
                                         </div>
                                     </div><!-- .slider-item -->
                                 </div><!-- .slider-init -->
-                                <div class="slider-dots"></div>
-                                <div class="slider-arrows"></div>
                             </div><!-- .slider-wrap -->
                         </div><!-- .nk-split-content -->
                     </div><!-- .nk-split -->
@@ -222,8 +226,6 @@
     <!-- JavaScript -->
     <script src="{{ asset('assets/js/bundle.js?ver=3.1.3') }}"></script>
     <script src="{{ asset('assets/js/scripts.js?ver=3.1.3') }}"></script>
-    <script src="{{ asset('assets/js/charts/gd-invest.js?ver=3.1.3') }}"></script>
-    <script src="{{ asset('assets/js/example-chart.js?ver=3.1.3') }}"></script>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <x-livewire-alert::scripts />

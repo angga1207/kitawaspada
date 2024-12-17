@@ -2,7 +2,7 @@
 
 ?>
 <div>
-    <form class="" autocomplete="off" wire:submit.prevent="loginAttemp">
+    <form wire:submit="loginAttemp">
         <div class="form-group">
             <div class="form-label-group">
                 <label class="form-label" for="email-address">Nama Pengguna</label>
