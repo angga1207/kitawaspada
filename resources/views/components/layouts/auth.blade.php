@@ -12,8 +12,8 @@
     <!-- Page Title  -->
     <title>{{ isset($title) ? $title : 'Kita Waspada Ogan Ilir' }}</title>
     <!-- StyleSheets  -->
-    <link rel="stylesheet" href="{{ asset('assets/css/dashlite.css?ver=3.1.3') }}">
-    <link id="skin-default" rel="stylesheet" href="{{ asset('assets/css/theme.css?ver=3.1.3') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/dashlite.css?ver=3.1.4') }}">
+    <link id="skin-default" rel="stylesheet" href="{{ asset('assets/css/theme.css?ver=3.1.4') }}">
 </head>
 
 <body class="nk-body npc-invest bg-lighter ">
