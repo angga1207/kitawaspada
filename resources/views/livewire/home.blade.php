@@ -82,7 +82,7 @@
                 <div class="nk-block mt-3">
                     <div class="row g-gs">
                         <div class="col-12 col-md-4">
-                            <div class="nk-wg-card is-dark card card-bordered">
+                            <div class="nk-wg-card bg-teal-dim card card-bordered">
                                 <div class="card-inner">
                                     <div class="nk-iv-wg2">
                                         <div class="nk-iv-wg2-title">
@@ -92,11 +92,21 @@
                                         <div class="nk-iv-wg2-text">
                                             <div class="nk-iv-wg2-amount">
                                                 {{ number_format($counts['jenis_usaha'], 0,'.','.') }}
+
+                                                <span class="change up">
+                                                    <dotlottie-player
+                                                        src="https://lottie.host/6c052111-280f-4c18-ad82-45869778085a/a0sqxUd3QF.lottie"
+                                                        background="transparent" speed="1"
+                                                        style="width: 100px; height: 100px; position: absolute; right: 10%; top: 10%;"
+                                                        loop autoplay>
+                                                    </dotlottie-player>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div><!-- .card -->
+
                         </div><!-- .col -->
                         <div class="col-12 col-md-4">
                             <div class="nk-wg-card bg-warning-dim card card-bordered">
@@ -111,6 +121,14 @@
                                         <div class="nk-iv-wg2-text">
                                             <div class="nk-iv-wg2-amount">
                                                 {{ number_format($counts['data_kbli'], 0,'.','.') }}
+                                                <span class="change up">
+                                                    <dotlottie-player
+                                                        src="https://lottie.host/6c052111-280f-4c18-ad82-45869778085a/a0sqxUd3QF.lottie"
+                                                        background="transparent" speed="1"
+                                                        style="width: 100px; height: 100px; position: absolute; right: 10%; top: 10%;"
+                                                        loop autoplay>
+                                                    </dotlottie-player>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -127,6 +145,14 @@
                                         <div class="nk-iv-wg2-text">
                                             <div class="nk-iv-wg2-amount">
                                                 {{ number_format($counts['data_nib'], 0,'.','.') }}
+                                                <span class="change up">
+                                                    <dotlottie-player
+                                                        src="https://lottie.host/6c052111-280f-4c18-ad82-45869778085a/a0sqxUd3QF.lottie"
+                                                        background="transparent" speed="1"
+                                                        style="width: 100px; height: 100px; position: absolute; right: 10%; top: 10%;"
+                                                        loop autoplay>
+                                                    </dotlottie-player>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>

@@ -39,6 +39,7 @@
     <script src="{{ asset('assets/js/scripts.js?ver=3.1.3') }}"></script>
     <script src="{{ asset('assets/js/charts/gd-invest.js?ver=3.1.3') }}"></script>
     <script src="{{ asset('assets/js/example-chart.js?ver=3.1.3') }}"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 
     <script>
         document.addEventListener('livewire:init', () => {

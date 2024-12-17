@@ -39158,7 +39158,7 @@ span+.icon {
 
   .nk-split .nk-auth-body,
   .nk-split .nk-auth-footer {
-    margin-right: 90px;
+    /* margin-right: 90px; */
   }
 }
 

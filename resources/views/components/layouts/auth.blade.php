@@ -16,7 +16,8 @@
     <link id="skin-default" rel="stylesheet" href="{{ asset('assets/css/theme.css?ver=3.1.4') }}">
 </head>
 
-<body class="nk-body npc-invest bg-lighter ">
+<body class="nk-body npc-invest bg-lighter"
+    style="background-image: url(./images/bg_bapenda.png); z-index: 99;  background-size: cover; background-repeat: no-repeat;">
     <div class="nk-app-root">
         <!-- main @s -->
         <div class="nk-main ">
@@ -24,43 +25,8 @@
             <div class="nk-wrap nk-wrap-nosidebar">
                 <!-- content @s -->
                 <div class="nk-content ">
-                    <div class="nk-split nk-split-page nk-split-lg">
-                        <div class="nk-split-content nk-block-area nk-block-area-column nk-auth-container bg-login">
-                            <div class="absolute-top-right d-lg-none p-3 p-sm-5">
-                                <a href="#" class="toggle btn-white btn btn-icon btn-light" data-target="athPromo"><em
-                                        class="icon ni ni-info"></em></a>
-                            </div>
-                            <div class="nk-block nk-block-middle nk-auth-body">
-                                <div class="brand-logo pb-5">
-                                    <a href="{{ route('login') }}" class="logo-link">
-                                        <img class="logo-light logo-img logo-img-lg"
-                                            src="./assets/images/kita_waspada/logo_login.png"
-                                            srcset="./assets/images/kita_waspada/logo_login.png 2x" alt="logo">
-                                        <img class="logo-dark logo-img logo-img-lg"
-                                            src="./assets/images/kita_waspada/logo_login.png"
-                                            srcset="./assets/images/kita_waspada/logo_login.png 2x" alt="logo-dark">
-                                    </a>
-                                </div>
-                                <div class="nk-block-head">
-                                    <div class="nk-block-head-content">
-                                        <h5 class="nk-block-title text-dark">Masuk Aplikasi</h5>
-                                        <div class="nk-block-des text-dark">
-                                            <p>Gunakan nama pengguna dan kata sandi yang valid</p>
-                                        </div>
-                                    </div>
-                                </div><!-- .nk-block-head -->
-
-                                {{ $slot }}
-
-                            </div><!-- .nk-block -->
-                            <div class="nk-block nk-auth-footer">
-
-                                <div class="mt-3">
-                                    <p class="text-dark">&copy; 2024 Kita Waspada. All Rights Reserved.</p>
-                                </div>
-                            </div><!-- .nk-block -->
-                        </div><!-- .nk-split-content -->
-                        <div class="nk-split-content nk-split-stretch bg-lighter d-flex toggle-break-lg toggle-slide toggle-slide-right"
+                    <div class="nk-split nk-split-page nk-split-lg" style="background: transparent;">
+                        <div class="nk-split-content nk-split-stretch d-flex toggle-break-lg toggle-slide toggle-slide-right"
                             data-toggle-body="true" data-content="athPromo" data-toggle-screen="lg"
                             data-toggle-overlay="true">
                             <div class="slider-wrap w-100 w-max-550px p-3 p-sm-5 m-auto">
@@ -68,29 +34,46 @@
                                     <div class="slider-item">
                                         <div class="nk-feature nk-feature-center">
                                             <div class="nk-feature-img">
-                                                <script
-                                                    src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
-                                                    type="module"></script>
-                                                <dotlottie-player
-                                                    src="https://lottie.host/6c052111-280f-4c18-ad82-45869778085a/a0sqxUd3QF.lottie"
-                                                    background="transparent" speed="1"
-                                                    style="width: 450px; height: 450px" loop autoplay>
-                                                </dotlottie-player>
+                                                <img src="./images/1.png" alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Kolaborasi dan Integrasi Data Pengawasan Perangkat Daerah</h4>
-                                                <p>Aplikasi
+                                                <h5 class="text-white">Aplikasi
                                                     ini digunakan untuk
                                                     mendukung, memudahkan dan mempercepat dalam
                                                     melakukan
                                                     proses penilaian <strong>PBB P2</strong> dan <strong>verifikasi
-                                                        BPHTB</strong></p>
+                                                        BPHTB</strong></h5>
                                             </div>
                                         </div>
                                     </div><!-- .slider-item -->
                                 </div><!-- .slider-init -->
                             </div><!-- .slider-wrap -->
                         </div><!-- .nk-split-content -->
+                        <div class="nk-split-content nk-block-area nk-block-area-column nk-auth-container"
+                            style="background: transparent;">
+                            <div class="absolute-top-right d-lg-none p-5 p-sm-5">
+                                <a href="#" class="toggle btn-white btn btn-icon btn-light" data-target="athPromo"><em
+                                        class="icon ni ni-info"></em></a>
+                            </div>
+                            <div class="nk-block nk-block-middle nk-auth-body text-center rounded p-5"
+                                style="background-color: rgba(255, 255, 255, 0.423);">
+                                <div class="brand-logo pb-2">
+                                    <a href="{{ route('login') }}" class="logo-link mt-0 pt-0">
+                                        <img class="logo-dark" src="./assets/images/kita_waspada/logo.png"
+                                            srcset="./assets/images/kita_waspada/logo.png 2x" alt="logo-dark">
+                                    </a>
+                                </div>
+                                <div class="nk-block-head">
+                                    <div class="nk-block-head-content">
+                                        <h3 class="nk-block-title text-white">Login</h3>
+                                    </div>
+                                </div><!-- .nk-block-head -->
+
+                                {{ $slot }}
+
+                            </div><!-- .nk-block -->
+                        </div><!-- .nk-split-content -->
+
                     </div><!-- .nk-split -->
                 </div>
                 <!-- wrap @e -->
