@@ -59,8 +59,8 @@
         @endif
 
         <div class="form-group">
-            <buton type="submit" class="btn btn-lg btn-primary btn-block" wire:click.prevent="loginAttemp">
-                Masuk Aplikasi
+            <buton type="submit" class="btn btn-lg btn-success btn-block" wire:click.prevent="loginAttemp">
+                Login
             </buton>
         </div>
     </form>
