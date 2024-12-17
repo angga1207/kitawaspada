@@ -17,16 +17,12 @@ trait Searchable
         foreach ($this->searchable as $searchable) {
 
             if (str_contains($searchable, '.')) {
-
                 $relation = Str::beforeLast($searchable, '.');
-
                 $column = Str::afterLast($searchable, '.');
-
-                $builder->orWhereRelation($relation, $column, 'like', "%$term%");
-
+                $builder->orWhereRelation($relation, $column, 'ilike', "%$term%");
                 continue;
             }
-            $builder->orWhere($searchable, 'like', "%$term%");
+            $builder->orWhere($searchable, 'ilike', "%$term%");
         }
         return $builder;
     }

@@ -9,7 +9,9 @@
                     <div class="nk-block-head nk-block-head-sm">
                         <div class="nk-block-between">
                             <div class="nk-block-head-content">
-                                <h3 class="nk-block-title page-title">Data Usaha</h3>
+                                <h3 class="nk-block-title page-title">
+                                    Data Usaha
+                                </h3>
                             </div><!-- .nk-block-head-content -->
                             <div class="nk-block-head-content">
                                 <div class="toggle-wrap nk-block-tools-toggle">
@@ -17,38 +19,58 @@
                                         data-target="pageMenu"><em class="icon ni ni-more-v"></em></a>
                                     <div class="toggle-expand-content" data-content="pageMenu">
                                         <ul class="nk-block-tools g-3">
-                                            <li class="nk-block-tools-opt">
+                                            {{-- <li class="nk-block-tools-opt">
                                                 <a href="#" data-target="addProduct"
-                                                    class="toggle btn btn-icon btn-primary d-md-none"><em
-                                                        class="icon ni ni-plus"></em></a>
+                                                    class="toggle btn btn-icon btn-primary d-md-none">
+                                                    <em class="icon ni ni-plus"></em>
+                                                </a>
                                                 <a href="#" data-target="addProduct"
-                                                    class="toggle btn btn-primary d-none d-md-inline-flex"><em
-                                                        class="icon ni ni-plus"></em><span>Tambah
-                                                        Data</span></a>
-                                            </li>
+                                                    class="toggle btn btn-primary d-none d-md-inline-flex">
+                                                    <em class="icon ni ni-plus"></em>
+                                                    <span>
+                                                        Tambah Data
+                                                    </span>
+                                                </a>
+                                            </li> --}}
                                             <li>
                                                 <div class="form-control-wrap">
                                                     <div class="form-icon form-icon-right">
                                                         <em class="icon ni ni-search"></em>
                                                     </div>
-                                                    <input type="text" class="form-control" id="default-04"
-                                                        placeholder="Cari NIB atau Nama Pemohon">
+                                                    <input type="search" class="form-control" id="default-04"
+                                                        placeholder="Cari NIB atau Nama Pemohon"
+                                                        wire:model.live="search">
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="drodown">
                                                     <a href="#"
                                                         class="dropdown-toggle btn btn-white btn-dim btn-outline-light"
-                                                        data-bs-toggle="dropdown"><em
-                                                            class="d-none d-sm-inline icon ni ni-filter-alt"></em><span>Jenis
-                                                            Usaha
-                                                        </span><em class="dd-indc icon ni ni-chevron-right"></em></a>
+                                                        data-bs-toggle="dropdown">
+                                                        <em class="d-none d-sm-inline icon ni ni-filter-alt"></em>
+                                                        <span class="text-truncate" style="width: 100px">
+                                                            {{ $jenisUsaha ?? 'Jenis Usaha' }}
+                                                        </span>
+                                                        <em class="dd-indc icon ni ni-chevron-right"></em>
+                                                    </a>
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         <ul class="link-list-opt no-bdr">
-                                                            <li><a href="#"><span>Koperasi</span></a></li>
-                                                            <li><a href="#"><span>BUM Des</span></a></li>
-                                                            <li><a href="#"><span>Perseroan Terbatas
-                                                                        (PT)</span></a></li>
+                                                            <li>
+                                                                <a href="javascript:void(0)"
+                                                                    wire:click.prevent="$set('jenisUsaha', null)"
+                                                                    class="{{ !$jenisUsaha ? 'text-primary fw-bold' : '' }}">
+                                                                    <span>Semua Jenis Usaha</span>
+                                                                </a>
+                                                            </li>
+                                                            @foreach($arrJenisUsaha as $key => $ju)
+                                                            <li>
+                                                                <a href="javascript:void(0)"
+                                                                    wire:click.prevent="$set('jenisUsaha', '{{ $ju }}')"
+                                                                    class="{{ $jenisUsaha == $ju ? 'text-primary fw-bold' : '' }}">
+                                                                    <span>{{ $ju }}</span>
+                                                                </a>
+                                                            </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -57,16 +79,37 @@
                                                 <div class="drodown">
                                                     <a href="#"
                                                         class="dropdown-toggle dropdown-indicator btn btn-outline-light btn-white"
-                                                        data-bs-toggle="dropdown">Lokasi Usaha</a>
+                                                        data-bs-toggle="dropdown">
+                                                        <span class="text-truncate" style="width: 100px">
+                                                            {{ $lokasiUsaha ?? 'Lokasi Usaha' }}
+                                                        </span>
+                                                    </a>
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         <ul class="link-list-opt no-bdr">
-                                                            <li><a href="#"><span>Indralaya</span></a></li>
-                                                            <li><a href="#"><span>Indralaya Utara</span></a>
+                                                            <li>
+                                                                <a href="javascript:void(0)"
+                                                                    wire:click.prevent="$set('lokasiUsaha', null)"
+                                                                    class="{{ !$lokasiUsaha ? 'text-primary fw-bold' : '' }}">
+                                                                    <span>Semua Lokasi</span>
+                                                                </a>
                                                             </li>
-                                                            <li><a href="#"><span>Payaraman</span></a></li>
+                                                            @foreach($arrLokasiUsaha as $key => $lu)
+                                                            <li>
+                                                                <a href="javascript:void(0)"
+                                                                    wire:click.prevent="$set('lokasiUsaha', '{{ $lu }}')"
+                                                                    class="{{ $lokasiUsaha == $lu ? 'text-primary fw-bold' : '' }}">
+                                                                    <span>{{ $lu }}</span>
+                                                                </a>
+                                                            </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
+                                            </li>
+                                            <li>
+                                                <button class="btn btn-icon btn-trigger" wire:click="resetFilter">
+                                                    <em class="icon ni ni-undo"></em>
+                                                </button>
                                             </li>
                                         </ul>
                                     </div>
@@ -83,29 +126,38 @@
 
                     <div class="nk-block">
                         <div class="row">
+
+                            @forelse($datas as $data)
                             <div class="col-12 col-md-4 mb-3">
-                                <div class="card card-bordered bg-azure-dim project-hover">
-                                    <a href="./html/kw_detail_datausaha.html">
+                                <div class="card card-bordered  project-hover">
+                                    <a href="{{ route('data-usaha.detail', $data->nib) }}">
                                         <div class="card-inner-group">
                                             <div class="card-inner ">
                                                 <div class="project">
                                                     <div class="project-head">
                                                         <div class="project-title">
                                                             <div class="user-avatar sq bg-purple">
-                                                                <span>GS</span>
+                                                                <span>
+                                                                    {{ substr($data->nama, 0, 1) }}
+                                                                </span>
                                                             </div>
                                                             <div class="project-info">
-                                                                <h6 class="title">KUSUMA GENDING SRIWIJAYA</h6>
-                                                                <span class="sub-text">NIB :
-                                                                    1002230066423</span>
+                                                                <h6 class="title">
+                                                                    {{ $data->nama }}
+                                                                </h6>
+                                                                <span class="sub-text">
+                                                                    NIB :
+                                                                    {{ $data->nib }}
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="project-details">
                                                         <span>
-                                                            Jenis Usaha : <span
-                                                                class="badge badge-dim bg-azure">Perseroan
-                                                                Terbatas (Perorangan)</span>
+                                                            Jenis Usaha :
+                                                            <span class="badge badge-dim bg-azure">
+                                                                {{ $data->jenis_usaha }}
+                                                            </span>
                                                         </span>
                                                     </div>
                                                     <div class="project-meta">
@@ -113,16 +165,19 @@
                                                             <li>
                                                                 <div>
                                                                     <span>
-                                                                        Jumlah Proyek/Usaha : <span
-                                                                            class="badge badge-dim bg-azure">
-                                                                            10</span>
+                                                                        Jumlah Proyek/Usaha :
+                                                                        <span class="badge badge-dim bg-azure">
+                                                                            {{ number_format($data->KBLI->count(),0,'.','.') }}
+                                                                        </span>
                                                                     </span>
                                                                 </div>
                                                             </li>
                                                         </ul>
                                                         <span>
-                                                            Membutuhkan Izin : <span class="badge badge-dim bg-danger">
-                                                                10</span>
+                                                            Membutuhkan Izin :
+                                                            <span class="badge badge-dim bg-danger">
+                                                                {{ number_format($data->IzinSektoral->count(),0,'.','.') }}
+                                                            </span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -131,258 +186,22 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-4 mb-3">
-                                <div class="card card-bordered bg-azure-dim project-hover">
-                                    <a href="./html/kw_detail_datausaha.html">
-                                        <div class="card-inner-group">
-                                            <div class="card-inner ">
-                                                <div class="project">
-                                                    <div class="project-head">
-                                                        <div class="project-title">
-                                                            <div class="user-avatar sq bg-purple">
-                                                                <span>GS</span>
-                                                            </div>
-                                                            <div class="project-info">
-                                                                <h6 class="title">KUSUMA GENDING SRIWIJAYA</h6>
-                                                                <span class="sub-text">NIB :
-                                                                    1002230066423</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="project-details">
-                                                        <span>
-                                                            Jenis Usaha : <span
-                                                                class="badge badge-dim bg-azure">Perseroan
-                                                                Terbatas (Perorangan)</span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="project-meta">
-                                                        <ul class="project-users g-1">
-                                                            <li>
-                                                                <div>
-                                                                    <span>
-                                                                        Jumlah Proyek/Usaha : <span
-                                                                            class="badge badge-dim bg-azure">
-                                                                            10</span>
-                                                                    </span>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <span>
-                                                            Membutuhkan Izin : <span class="badge badge-dim bg-danger">
-                                                                10</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
+                            @empty
+                            <div class="col-12">
+                                <div class="alert alert-warning text-center fw-bold">
+                                    Tidak ada data yang ditemukan
                                 </div>
                             </div>
-                            <div class="col-12 col-md-4 mb-3">
-                                <div class="card card-bordered bg-azure-dim project-hover">
-                                    <a href="./html/kw_detail_datausaha.html">
-                                        <div class="card-inner-group">
-                                            <div class="card-inner ">
-                                                <div class="project">
-                                                    <div class="project-head">
-                                                        <div class="project-title">
-                                                            <div class="user-avatar sq bg-purple">
-                                                                <span>GS</span>
-                                                            </div>
-                                                            <div class="project-info">
-                                                                <h6 class="title">KUSUMA GENDING SRIWIJAYA</h6>
-                                                                <span class="sub-text">NIB :
-                                                                    1002230066423</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="project-details">
-                                                        <span>
-                                                            Jenis Usaha : <span
-                                                                class="badge badge-dim bg-azure">Perseroan
-                                                                Terbatas (Perorangan)</span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="project-meta">
-                                                        <ul class="project-users g-1">
-                                                            <li>
-                                                                <div>
-                                                                    <span>
-                                                                        Jumlah Proyek/Usaha : <span
-                                                                            class="badge badge-dim bg-azure">
-                                                                            10</span>
-                                                                    </span>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <span>
-                                                            Membutuhkan Izin : <span class="badge badge-dim bg-danger">
-                                                                10</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
+                            @endforelse
+
+                            @if($datas->hasPages())
+                            <div class="col-12">
+                                <div class="justify-content-center text-center mt-4">
+                                    {{ $datas->links() }}
                                 </div>
                             </div>
-                            <div class="col-12 col-md-4 mb-3">
-                                <div class="card card-bordered bg-azure-dim project-hover">
-                                    <a href="./html/kw_detail_datausaha.html">
-                                        <div class="card-inner-group">
-                                            <div class="card-inner ">
-                                                <div class="project">
-                                                    <div class="project-head">
-                                                        <div class="project-title">
-                                                            <div class="user-avatar sq bg-purple">
-                                                                <span>GS</span>
-                                                            </div>
-                                                            <div class="project-info">
-                                                                <h6 class="title">KUSUMA GENDING SRIWIJAYA</h6>
-                                                                <span class="sub-text">NIB :
-                                                                    1002230066423</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="project-details">
-                                                        <span>
-                                                            Jenis Usaha : <span
-                                                                class="badge badge-dim bg-azure">Perseroan
-                                                                Terbatas (Perorangan)</span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="project-meta">
-                                                        <ul class="project-users g-1">
-                                                            <li>
-                                                                <div>
-                                                                    <span>
-                                                                        Jumlah Proyek/Usaha : <span
-                                                                            class="badge badge-dim bg-azure">
-                                                                            10</span>
-                                                                    </span>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <span>
-                                                            Membutuhkan Izin : <span class="badge badge-dim bg-danger">
-                                                                10</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4 mb-3">
-                                <div class="card card-bordered bg-azure-dim project-hover">
-                                    <a href="./html/kw_detail_datausaha.html">
-                                        <div class="card-inner-group">
-                                            <div class="card-inner ">
-                                                <div class="project">
-                                                    <div class="project-head">
-                                                        <div class="project-title">
-                                                            <div class="user-avatar sq bg-purple">
-                                                                <span>GS</span>
-                                                            </div>
-                                                            <div class="project-info">
-                                                                <h6 class="title">KUSUMA GENDING SRIWIJAYA</h6>
-                                                                <span class="sub-text">NIB :
-                                                                    1002230066423</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="project-details">
-                                                        <span>
-                                                            Jenis Usaha : <span
-                                                                class="badge badge-dim bg-azure">Perseroan
-                                                                Terbatas (Perorangan)</span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="project-meta">
-                                                        <ul class="project-users g-1">
-                                                            <li>
-                                                                <div>
-                                                                    <span>
-                                                                        Jumlah Proyek/Usaha : <span
-                                                                            class="badge badge-dim bg-azure">
-                                                                            10</span>
-                                                                    </span>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <span>
-                                                            Membutuhkan Izin : <span class="badge badge-dim bg-danger">
-                                                                10</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4 mb-3">
-                                <div class="card card-bordered bg-azure-dim project-hover">
-                                    <a href="./html/kw_detail_datausaha.html">
-                                        <div class="card-inner-group">
-                                            <div class="card-inner ">
-                                                <div class="project">
-                                                    <div class="project-head">
-                                                        <div class="project-title">
-                                                            <div class="user-avatar sq bg-purple">
-                                                                <span>GS</span>
-                                                            </div>
-                                                            <div class="project-info">
-                                                                <h6 class="title">KUSUMA GENDING SRIWIJAYA</h6>
-                                                                <span class="sub-text">NIB :
-                                                                    1002230066423</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="project-details">
-                                                        <span>
-                                                            Jenis Usaha : <span
-                                                                class="badge badge-dim bg-azure">Perseroan
-                                                                Terbatas (Perorangan)</span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="project-meta">
-                                                        <ul class="project-users g-1">
-                                                            <li>
-                                                                <div>
-                                                                    <span>
-                                                                        Jumlah Proyek/Usaha : <span
-                                                                            class="badge badge-dim bg-azure">
-                                                                            10</span>
-                                                                    </span>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <span>
-                                                            Membutuhkan Izin : <span class="badge badge-dim bg-danger">
-                                                                10</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="justify-content-center text-center mt-4">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><span class="page-link"><em
-                                                class="icon ni ni-more-h"></em></span></li>
-                                    <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </div>
+                            @endif
+
                         </div>
                     </div><!-- .nk-block -->
 
@@ -472,4 +291,12 @@
             </div>
         </div>
     </div>
+
+    @push('styles')
+    <style>
+        .project-hover:hover {
+            background-color: rgb(224, 242, 255) !important;
+        }
+    </style>
+    @endpush
 </div>

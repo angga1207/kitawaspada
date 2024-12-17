@@ -26,7 +26,8 @@ return new class extends Migration
             $table->string('kelurahan')->nullable();
             $table->string('lng')->nullable();
             $table->string('lat')->nullable();
-            $table->enum('is_valid_coordinate', [true, false])->nullable();
+            // $table->enum('is_valid_coordinate', [true, false])->nullable();
+            $table->string('is_valid_coordinate')->nullable();
             $table->longText('validation_coordinate_notes')->nullable();
             $table->string('validation_lng')->nullable();
             $table->string('validation_lat')->nullable();

@@ -14,6 +14,8 @@
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{ asset('assets/css/dashlite.css?ver=3.1.3') }}">
     <link id="skin-default" rel="stylesheet" href="{{ asset('assets/css/theme.css?ver=3.1.3') }}">
+
+    @stack('styles')
 </head>
 
 <body class="nk-body npc-invest bg-lighter ">
@@ -38,11 +40,35 @@
     <script src="{{ asset('assets/js/charts/gd-invest.js?ver=3.1.3') }}"></script>
     <script src="{{ asset('assets/js/example-chart.js?ver=3.1.3') }}"></script>
 
+    <script>
+        document.addEventListener('livewire:init', () => {
+            // Livewire.on('openModal', (el) => {
+            //     document.querySelector('#'+el).classList.remove('hidden')
+            // })
+
+            Livewire.on('closeModal', (el) => {
+                if (el.length > 0) {
+                    $(el[0]).modal('hide');
+                    // $('.modal').modal('hide');
+                    return false;
+                }else{
+                    $('.modal').modal('hide');
+                    return false;
+                }
+            })
+
+            Livewire.on('storeLocalStorage', (data) => {
+                Alpine.store('data', data)
+            });
+        })
+    </script>
+
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <x-livewire-alert::scripts />
     <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
     <x-livewire-alert::flash />
     @livewireChartsScripts
+    @stack('scripts')
 </body>
 
 </html>

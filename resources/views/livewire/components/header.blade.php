@@ -1,5 +1,4 @@
 <div>
-    <!-- main header @s -->
     <div class="nk-header nk-header-fluid is-theme">
         <div class="container-xl wide-xl">
             <div class="nk-header-wrap">
@@ -8,26 +7,18 @@
                         <em class="icon ni ni-menu"></em>
                     </a>
                 </div>
+
                 <div class="nk-header-brand">
                     <a href="{{ route('home') }}" class="logo-link">
-                        <img class="logo-light logo-img" src="{{ asset('/assets/images/kita_waspada/logo.png') }}"
-                            srcset="{{ asset('/assets/images/kita_waspada/logo.png') }}" alt="logo">
-                        <img class="logo-dark logo-img" src="{{ asset('/assets/images/kita_waspada/logo.png') }}"
-                            srcset="{{ asset('/assets/images/kita_waspada/logo.png') }}" alt="logo-dark">
+                        <img class="logo-light logo-img" src="{{ asset('assets/images/kita_waspada/logo_login.png') }}"
+                            srcset="{{ asset('assets/images/kita_waspada/logo_login.png') }} 2x" alt="logo">
+                        <img class="logo-dark logo-img" src="{{ asset('assets/images/kita_waspada/logo_login.png') }}"
+                            srcset="{{ asset('assets/images/kita_waspada/logo_login.png') }} 2x" alt="logo-dark">
                     </a>
-                </div><!-- .nk-header-brand -->
+                </div>
+
                 <div class="nk-header-menu" data-content="headerNav">
                     <div class="nk-header-mobile">
-                        <div class="nk-header-brand">
-                            <a href="{{ route('home') }}" class="logo-link">
-                                <img class="logo-light logo-img"
-                                    src="{{ asset('/assets/images/kita_waspada/logo.png') }}"
-                                    srcset="{{ asset('/assets/images/kita_waspada/logo.png') }}" alt="logo">
-                                <img class="logo-dark logo-img"
-                                    src="{{ asset('/assets/images/kita_waspada/logo.png') }}"
-                                    srcset="{{ asset('/assets/images/kita_waspada/logo.png') }}" alt="logo-dark">
-                            </a>
-                        </div>
                         <div class="nk-menu-trigger me-n2">
                             <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav">
                                 <em class="icon ni ni-arrow-left"></em>
@@ -46,40 +37,31 @@
                             </a>
                         </li><!-- .nk-menu-item -->
                         <li class="nk-menu-item has-sub">
-                            <a href="./html/kw_usaha_dalam_peta.html" class="nk-menu-link">
+                            <a href="{{ route('usaha-dalam-peta') }}" class="nk-menu-link">
                                 <span class="nk-menu-text">Usaha Dalam Peta</span>
                             </a>
                         </li><!-- .nk-menu-item -->
                         <li class="nk-menu-item has-sub">
                             <a href="#" class="nk-menu-link nk-menu-toggle">
-                                <span class="nk-menu-text">
-                                    Menu Admin
-                                </span>
+                                <span class="nk-menu-text">Menu Admin</span>
                             </a>
                             <ul class="nk-menu-sub">
                                 <li class="nk-menu-item">
-                                    <a href="./html/kw_database.html" class="nk-menu-link">
-                                        <span class="nk-menu-text">
-                                            Database
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="nk-menu-item">
-                                    <a href="./html/kw_koordinat.html" class="nk-menu-link">
+                                    <a href="#" class="nk-menu-link">
                                         <span class="nk-menu-text">
                                             Validasi Koordinat
                                         </span>
                                     </a>
                                 </li>
                                 <li class="nk-menu-item">
-                                    <a href="./html/kw_import_data.html" class="nk-menu-link">
+                                    <a href="{{ route('import') }}" class="nk-menu-link">
                                         <span class="nk-menu-text">
                                             Import Data
                                         </span>
                                     </a>
                                 </li>
                                 <li class="nk-menu-item">
-                                    <a href="./html/kw_user.html" class="nk-menu-link">
+                                    <a href="{{ route('users') }}" class="nk-menu-link">
                                         <span class="nk-menu-text">
                                             Pengguna
                                         </span>
@@ -87,8 +69,9 @@
                                 </li>
                             </ul><!-- .nk-menu-sub -->
                         </li><!-- .nk-menu-item -->
-                    </ul><!-- .nk-menu -->
-                </div><!-- .nk-header-menu -->
+                    </ul>
+                </div>
+
                 <div class="nk-header-tools">
                     <ul class="nk-quick-nav">
                         <li class="dropdown notification-dropdown">
@@ -193,9 +176,8 @@
                             </div>
                         </li><!-- .dropdown -->
                     </ul><!-- .nk-quick-nav -->
-                </div><!-- .nk-header-tools -->
-            </div><!-- .nk-header-wrap -->
-        </div><!-- .container-fliud -->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- main header @e -->
 </div>
